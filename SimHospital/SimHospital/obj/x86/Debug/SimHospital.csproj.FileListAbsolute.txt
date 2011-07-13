@@ -1,0 +1,7 @@
+C:\Users\Nuno Costa\Documents\Visual Studio 2010\Projects\SimHospital\SimHospital\SimHospital\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Nuno Costa\Documents\Visual Studio 2010\Projects\SimHospital\SimHospital\SimHospital\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Nuno Costa\Documents\Visual Studio 2010\Projects\SimHospital\SimHospital\SimHospital\bin\x86\Debug\SimHospital.exe
+C:\Users\Nuno Costa\Documents\Visual Studio 2010\Projects\SimHospital\SimHospital\SimHospital\bin\x86\Debug\SimHospital.pdb
+C:\Users\Nuno Costa\Documents\Visual Studio 2010\Projects\SimHospital\SimHospital\SimHospital\obj\x86\Debug\SimHospital.exe
+C:\Users\Nuno Costa\Documents\Visual Studio 2010\Projects\SimHospital\SimHospital\SimHospital\obj\x86\Debug\SimHospital.pdb
+C:\Users\Nuno Costa\Documents\Visual Studio 2010\Projects\SimHospital\SimHospital\SimHospital\bin\x86\Debug\Content\Models\spaceship.xnb
