@@ -18,20 +18,18 @@ namespace SimHospital
 	{
 
 		ModelManager modelManager;
-
+		ConstructionPrencinct constructionPrecinct;
 		GraphicsDeviceManager graphics;
-		SpriteBatch spriteBatch;
 
 		public Camera camera { 
 			get; 
 			protected set;
 		}
-
+		
 		public Game1()
 		{
 			graphics = new GraphicsDeviceManager(this);
 			Content.RootDirectory = "Content";
-
 			graphics.PreferredBackBufferHeight = 720;
 			graphics.PreferredBackBufferWidth = 1280;
 		}
@@ -47,8 +45,10 @@ namespace SimHospital
 			// TODO: Add your initialization logic here
 			camera = new Camera(this, new Vector3(0, 0, 50), Vector3.Zero, Vector3.Up);
 			Components.Add(camera);
-			modelManager = new ModelManager(this);
-			Components.Add(modelManager);
+			constructionPrecinct = new ConstructionPrencinct(this);
+			Components.Add(constructionPrecinct);
+	//		modelManager = new ModelManager(this);
+	//		Components.Add(modelManager);
 			base.Initialize();
 		}
 
@@ -59,8 +59,7 @@ namespace SimHospital
 		protected override void LoadContent()
 		{
 			// Create a new SpriteBatch, which can be used to draw textures.
-			spriteBatch = new SpriteBatch(GraphicsDevice);
-
+			
 			// TODO: use this.Content to load your game content here
 		}
 
@@ -94,11 +93,7 @@ namespace SimHospital
 		/// </summary>
 		/// <param name="gameTime">Provides a snapshot of timing values.</param>
 		protected override void Draw(GameTime gameTime)
-		{
-			GraphicsDevice.Clear(Color.CornflowerBlue);
-
-			// TODO: Add your drawing code here
-
+		{	
 			base.Draw(gameTime);
 		}
 	}

@@ -26,7 +26,11 @@ namespace SimHospital
 
 		Vector3 cameraDirection;
 		Vector3 cameraUp;
-		float speed = 3;
+		int mouseWheel = 1;
+		float speed = 1;
+		int counter = 0;
+		float scrollSpeed = 1f;
+		float smoothPar=0.3F;
 		public Matrix view
 		{
 			get;
@@ -72,18 +76,66 @@ namespace SimHospital
 		/// <param name="gameTime">Provides a snapshot of timing values.</param>
 		public override void Update(GameTime gameTime)
 		{
-			// TODO: Add your update code here
-			if (Keyboard.GetState().IsKeyDown(Keys.W))
-				cameraPosition += cameraDirection * speed;
-			if (Keyboard.GetState().IsKeyDown(Keys.S))
-				cameraPosition -= cameraDirection * speed;
 
-			System.Console.WriteLine(cameraPosition);
-			CreateLookAt();
+			MouseWheelZoom();
+			TranslateCamera();
 			base.Update(gameTime);
 		}
 
 		private void CreateLookAt()
+		{
+			view = Matrix.CreateLookAt(cameraPosition, cameraPosition + cameraDirection, cameraUp);
+			
+		}
+
+		/* MouseWheelZoom() O zoom terá que ser suave e não abrupto. Para isso, por cada unidade de mouswheel, o
+		 * zoom será aplicado num número prédefinido de iterações (counter) para que seja gradual e dê a assim
+		 * a noção de que é suave.
+		 * 
+		 * Uma outra opção seria aplicar uma aceleração à camera. Aí sim obter-se-ia o resultado óptimo.
+		 */
+		private void MouseWheelZoom()
+		{
+			if (Mouse.GetState().ScrollWheelValue > mouseWheel && cameraPosition.Z > 0) {
+				System.Console.WriteLine("zoomIn");
+				cameraPosition += (cameraDirection * scrollSpeed);
+			}
+			if (Mouse.GetState().ScrollWheelValue < mouseWheel && cameraPosition.Z >= 0) {
+				System.Console.WriteLine("ZoomOut");
+				cameraPosition -= cameraDirection * scrollSpeed;
+			}
+			if (counter < 10 && Mouse.GetState().ScrollWheelValue != mouseWheel) {
+				CreateLookAt();
+				counter++;
+			} else if (counter == 10) {
+				mouseWheel = (int)Mouse.GetState().ScrollWheelValue;
+				counter = 0;
+			}
+		}
+
+		private void TranslateCamera()
+		{
+			if (Keyboard.GetState().IsKeyDown(Keys.W)) {
+				cameraPosition += Vector3.UnitY;
+				CreateLookAt();
+			}
+			if (Keyboard.GetState().IsKeyDown(Keys.S)) {
+				cameraPosition -= Vector3.UnitY;
+				CreateLookAt();
+			}
+			if (Keyboard.GetState().IsKeyDown(Keys.A)) {
+				cameraPosition -= Vector3.UnitX;
+				CreateLookAt();
+			}
+			if (Keyboard.GetState().IsKeyDown(Keys.D)) {
+				cameraPosition += Vector3.UnitX;
+				CreateLookAt();
+			}
+
+		}
+
+
+		private void smoothZoom()
 		{
 			view = Matrix.CreateLookAt(cameraPosition, cameraPosition + cameraDirection, cameraUp);
 		}

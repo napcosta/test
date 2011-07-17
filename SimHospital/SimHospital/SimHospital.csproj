@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Camera.cs" />
+    <Compile Include="Classes\ConstructionPrencinct.cs" />
     <Compile Include="Classes\Doctor.cs" />
     <Compile Include="Classes\ModelManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
