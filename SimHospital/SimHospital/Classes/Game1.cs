@@ -20,6 +20,7 @@ namespace SimHospital
 		ModelManager modelManager;
 		ConstructionPrencinct constructionPrecinct;
 		GraphicsDeviceManager graphics;
+		Texture2D texture;
 
 		public Camera camera { 
 			get; 
@@ -59,7 +60,7 @@ namespace SimHospital
 		protected override void LoadContent()
 		{
 			// Create a new SpriteBatch, which can be used to draw textures.
-			
+			texture = Content.Load<Texture2D>(@"Textures\THTexture");
 			// TODO: use this.Content to load your game content here
 		}
 

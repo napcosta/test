@@ -1,2 +1,4 @@
 Content\Models\spaceship.xnb
 Content\Models\BLENDERE.xnb
+Content\Textures\THtexture.xnb
+Content\Textures\Trees.xnb

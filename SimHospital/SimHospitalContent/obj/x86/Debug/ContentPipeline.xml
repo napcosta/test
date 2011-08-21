@@ -41,6 +41,24 @@
       <Output>obj\x86\Debug\Models\BLENDERE_0.xml</Output>
       <Time>2011-07-13T13:00:22.1038455+01:00</Time>
     </Item>
+    <Item>
+      <Source>Textures\THtexture.png</Source>
+      <Name>Textures\THtexture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Nuno Costa\Documents\Visual Studio 2010\Projects\SimHospital\SimHospital\SimHospital\bin\x86\Debug\Content\Textures\THtexture.xnb</Output>
+      <Time>2011-07-18T02:34:17.8693627+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Trees.jpg</Source>
+      <Name>Textures\Trees</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Nuno Costa\Documents\Visual Studio 2010\Projects\SimHospital\SimHospital\SimHospital\bin\x86\Debug\Content\Textures\Trees.xnb</Output>
+      <Time>2011-07-18T02:59:46.7128076+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

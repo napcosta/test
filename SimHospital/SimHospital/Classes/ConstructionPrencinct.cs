@@ -23,6 +23,7 @@ namespace SimHospital
 		SpriteBatch spriteBatch;
 		BasicEffect effect;
 		Camera camera;
+		Texture2D texture;
 //		GraphicsDeviceManager graphics;
 
 		public ConstructionPrencinct(Game1 game)
@@ -43,23 +44,24 @@ namespace SimHospital
 
 			base.Initialize();
 		}
-
+		/* A área de um campo de futebol: 90x120 */
 		protected override void LoadContent()
 		{
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 			verts = new VertexPositionTexture[4];
 			verts[0] = new VertexPositionTexture(
-			    new Vector3(-1, 1, 0), new Vector2(0, 0));
+			    new Vector3(0, 120, 0), new Vector2(0, 0));
 			verts[1] = new VertexPositionTexture(
-			    new Vector3(1, 1, 0), new Vector2(1, 0));
+			    new Vector3(100, 120, 0), new Vector2(1, 0));
 			verts[2] = new VertexPositionTexture(
-			    new Vector3(-1, -1, 0), new Vector2(0, 1));
+			    new Vector3(0, 0, 0), new Vector2(0, 1));
 			verts[3] = new VertexPositionTexture(
-			    new Vector3(1, -1, 0), new Vector2(1, 1));
+			    new Vector3(100, 0, 0), new Vector2(1, 1));
 			// Set vertex data in VertexBuffer
 			vertexBuffer = new VertexBuffer(GraphicsDevice, typeof(VertexPositionTexture), verts.Length, BufferUsage.None);
 			vertexBuffer.SetData(verts);
 
+			texture = this.Game.Content.Load<Texture2D>(@"Textures\THTexture");
 			effect = new BasicEffect(GraphicsDevice);
 		}
 
@@ -72,10 +74,13 @@ namespace SimHospital
 			effect.Projection = camera.projection;
 			effect.TextureEnabled = true;
 
+			effect.Texture = texture;
+			effect.TextureEnabled = true;
+
 			foreach (EffectPass pass in effect.CurrentTechnique.Passes) {
 				pass.Apply();
-				GraphicsDevice.DrawUserPrimitives<VertexPositionTexture>
-						    (PrimitiveType.TriangleStrip, verts, 0, 2);
+				GraphicsDevice.DrawUserPrimitives<VertexPositionTexture> 
+					(PrimitiveType.TriangleStrip, verts, 0, 2);
 			}
 			base.Update(gameTime);
 		}
